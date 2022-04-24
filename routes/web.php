@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,9 @@ Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
+
 Route::get('/post/{post:slug}', [PostController::class, 'show'])->name('post');
+
+Route::get('/category/{category:slug}', [PostController::class, 'category'])->name('category');
+
+Route::get('/categories', [CategoryController::class, 'index']);

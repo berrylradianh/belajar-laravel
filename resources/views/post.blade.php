@@ -2,6 +2,7 @@
 
 @section('container')
     <h1 class="mb-5">{{ $post->title }}</h1>
+    <p>By Berryl Radian Hamesha in <a href="/category/{{ $post->category->slug }}">{{ $post->category->name }}</a></p>
     {!! $post->body !!}
     <a href="/posts">Back to Posts</a>
 @endsection
