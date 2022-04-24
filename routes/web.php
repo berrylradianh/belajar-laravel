@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,24 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home',[
-        "title" => "Home",
-    ]);
-});
+Route::get('/',[HomeController::class,'index'])->name('home');
 
-Route::get('/about', function () {
-    return view('about',[
-        "title" => "About",
-        "name" => "Nguyễn Văn A",
-        "email" => "Nguyen@gmail.com",
-        "image" => "img/contoh-gambar.jpg"
-    ]);
-});
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 
-Route::get('/posts', function () {
-    return view('posts',[
-        "title" => "Posts",
-    ]);
-});
-
+Route::get('/posts', [PostController::class, 'index'])->name('posts');
