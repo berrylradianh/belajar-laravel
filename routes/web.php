@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
 
 /*
@@ -28,3 +29,5 @@ Route::get('/post/{post:slug}', [PostController::class, 'show'])->name('post');
 Route::get('/category/{category:slug}', [PostController::class, 'category'])->name('category');
 
 Route::get('/categories', [CategoryController::class, 'index']);
+
+Route::get('authors/{author:username}',[AuthorController::class, 'author']);
